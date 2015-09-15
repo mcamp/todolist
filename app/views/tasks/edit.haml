@@ -1,0 +1,17 @@
+%h2
+  =t("tasks.update.updating")
+
+-if @task.errors.any?
+  %ul
+    -@task.errors.full_messages.each do |error|
+      %li=error
+      
+=form_for(@task, url:{action: "update"}) do |f|
+  .field
+    =f.label :done
+    =f.check_box :done
+  .field
+    =f.label :description
+    =f.text_area :description
+  .actions
+    =f.submit t("tasks.update.updating")

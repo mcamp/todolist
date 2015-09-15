@@ -1,0 +1,8 @@
+production:
+  uri: "mongodb://localhost/todolist_production"
+
+development:
+  uri: "mongodb://localhost/todolist_development"
+
+test:
+  uri: "mongodb://localhost/todolist_test"

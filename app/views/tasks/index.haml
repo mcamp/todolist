@@ -1,0 +1,20 @@
+%h2
+  Tasks
+
+=link_to t("tasks.create.creating"), new_task_path
+
+-@tasks.each do |task|
+  .done
+    =t("tasks.done") + ": " + task.done.to_s
+  .description
+    =task.description
+  .link.mark
+    -if task.done?
+      =link_to t("tasks.mark_undone"), undone_task_path(task), method: :patch
+    -else
+      =link_to t("tasks.mark_done"), done_task_path(task), method: :patch
+  .link.edit
+    =link_to t("tasks.edit"), edit_task_path(task)
+  .link.delete
+    =link_to t("tasks.delete"), task_path(task), method: :delete
+  %hr
